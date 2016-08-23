@@ -16,7 +16,9 @@ import numpy as np
 from obspy.io.segy.core import _read_segy
 from obspy.core.util import get_example_file
 # or 'from obspy import read' if file wide headers are of no interest
-filename = get_example_file("penobscot_xl1155.sgy")
+text='SSSA.sgy'
+print(text)
+filename = get_example_file(text)
 st = _read_segy(filename)
 
 
@@ -25,7 +27,7 @@ st = _read_segy(filename)
 #print(st.stats)
 
 i=0
-trace=np.zeros((1501, len(st)))
+trace=np.zeros((1500, len(st)))
 while i<len(st):
     trace[:, i]=st[i].data
     i=i+1
